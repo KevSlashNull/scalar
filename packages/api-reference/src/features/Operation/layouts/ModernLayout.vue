@@ -150,7 +150,6 @@ const labelId = useId()
                 :callbacks="operation.callbacks"
                 class="mt-6"
                 :eventBus
-                :method
                 :options
                 :path />
             </ScalarErrorBoundary>
