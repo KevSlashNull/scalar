@@ -1,14 +1,10 @@
 <script setup lang="ts">
-import {
-  OperationCodeSample,
-  type ClientOptionGroup,
-} from '@scalar/api-client/v2/blocks/operation-code-sample'
+import { OperationCodeSample } from '@scalar/api-client/v2/blocks/operation-code-sample'
 import {
   ScalarErrorBoundary,
   ScalarIconButton,
   ScalarMarkdown,
 } from '@scalar/components'
-import type { HttpMethod as HttpMethodType } from '@scalar/helpers/http/http-methods'
 import {
   ScalarIconCopy,
   ScalarIconPlay,
@@ -20,8 +16,6 @@ import {
   isOperationDeprecated,
 } from '@scalar/oas-utils/helpers'
 import { useClipboard } from '@scalar/use-hooks/useClipboard'
-import type { WorkspaceStore } from '@scalar/workspace-store/client'
-import type { WorkspaceEventBus } from '@scalar/workspace-store/events'
 import { getResolvedRef } from '@scalar/workspace-store/helpers/get-resolved-ref'
 import type {
   OperationObject,
@@ -48,11 +42,11 @@ import { XBadges } from '@/features/x-badges'
 
 const {
   clientOptions,
-  config,
   eventBus,
   isWebhook,
   method,
   operation,
+  options,
   path,
   selectedServer,
   selectedSecuritySchemes,
@@ -130,7 +124,7 @@ const { copyToClipboard } = useClipboard()
       <XBadges
         :badges="operation['x-badges']"
         position="after" />
-      <template v-if="!config.hideTestRequestButton">
+      <template v-if="!options.hideTestRequestButton">
         <TestRequestButton
           v-if="active && !isWebhook"
           :id
@@ -142,7 +136,7 @@ const { copyToClipboard } = useClipboard()
           class="endpoint-try-hint size-4.5" />
       </template>
       <span
-        v-if="config.showOperationId && operation.operationId"
+        v-if="options.showOperationId && operation.operationId"
         class="font-code text-sm">
         {{ operation.operationId }}
       </span>
@@ -171,7 +165,7 @@ const { copyToClipboard } = useClipboard()
         <div class="operation-details-card-item">
           <OperationParameters
             :eventBus
-            :options="config"
+            :options
             :parameters="
               // These have been resolved in the Operation.vue component
               operation.parameters as ParameterObject[]
@@ -181,7 +175,7 @@ const { copyToClipboard } = useClipboard()
         <div class="operation-details-card-item">
           <OperationResponses
             :eventBus
-            :options="config"
+            :options
             :responses="operation.responses" />
         </div>
 
@@ -193,7 +187,7 @@ const { copyToClipboard } = useClipboard()
             :callbacks="operation.callbacks"
             :eventBus
             :method
-            :options="config"
+            :options
             :path />
         </div>
       </div>
@@ -217,9 +211,9 @@ const { copyToClipboard } = useClipboard()
             :eventBus
             fallback
             :isWebhook
-            :method="method"
-            :operation="operation"
-            :path="path"
+            :method
+            :operation
+            :path
             :securitySchemes="selectedSecuritySchemes"
             :selectedClient
             :selectedServer />
