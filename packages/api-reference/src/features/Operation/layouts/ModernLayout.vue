@@ -139,6 +139,7 @@ const labelId = useId()
               :requestBody="getResolvedRef(operation.requestBody)" />
             <OperationResponses
               :breadcrumb="[id]"
+              :collapsableItems="!options.expandAllResponses"
               :eventBus
               :options
               :responses="operation.responses" />
