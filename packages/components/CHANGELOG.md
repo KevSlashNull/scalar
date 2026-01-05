@@ -1,5 +1,19 @@
 # @scalar/components
 
+## 0.16.13
+
+### Patch Changes
+
+- [#7584](https://github.com/scalar/scalar/pull/7584): fix: remove internal unused export
+
+- `CARD_Heading_SYMBOL`
+- `FORM_GROUP_SYMBOL`
+- `formatHotKey#isDefault`
+- `LoadingCompletionOptions`
+- `MaybeElement`
+- `ScalarComboBox#isGroup`
+- [#7584](https://github.com/scalar/scalar/pull/7584): fix: remove unused `@scalar/use-toasts` dependency
+
 ## 0.16.12
 
 ### Patch Changes

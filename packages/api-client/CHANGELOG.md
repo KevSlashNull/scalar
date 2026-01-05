@@ -1,5 +1,26 @@
 # @scalar/api-client
 
+## 2.17.2
+
+### Patch Changes
+
+#### Updated Dependencies
+
+- **@scalar/components@0.16.13**
+  - [#7584](https://github.com/scalar/scalar/pull/7584): fix: remove internal unused export
+
+- `CARD_Heading_SYMBOL`
+- `FORM_GROUP_SYMBOL`
+- `formatHotKey#isDefault`
+- `LoadingCompletionOptions`
+- `MaybeElement`
+- `ScalarComboBox#isGroup`
+  - [#7584](https://github.com/scalar/scalar/pull/7584): fix: remove unused `@scalar/use-toasts` dependency
+
+- **@scalar/sidebar@0.7.3**
+
+- **@scalar/use-codemirror@0.13.7**
+
 ## 2.17.1
 
 ### Patch Changes
